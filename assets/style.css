@@ -703,7 +703,9 @@ my-home-menu {
 }
 
 body.user-logged-out my-video-comment-add,
-body.user-logged-out .action-button-download {
+body.user-logged-out .action-button-download,
+body.user-logged-out .action-button-like,
+body.user-logged-out my-subscribe-button {
   display:none !important;
 }
 
