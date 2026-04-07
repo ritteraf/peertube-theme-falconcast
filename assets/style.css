@@ -584,6 +584,7 @@ ngx-loading-bar .ngx-bar {
 
   .main-menu {
     background-color: var(--bg) !important;
+    min-height: 100vh !important;
   }
 
   .main-menu .mobile-controls {
@@ -745,6 +746,10 @@ my-privacy-concerns {
 }
 
 .mobile-msg {
+  display:none !important;
+}
+
+.more-info-btn-container {
   display:none !important;
 }
 
