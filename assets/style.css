@@ -324,6 +324,27 @@ ngb-tooltip-window {
   object-fit: cover !important;
 }
 
+/* Playlist/channel row thumbnails — stretch to fill row height */
+.miniature.display-as-row {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.miniature.display-as-row > my-link.miniature-thumbnail,
+.miniature.display-as-row > my-link.miniature-thumbnail > a {
+  display: flex !important;
+  height: auto !important;
+  min-height: 100% !important;
+}
+
+.miniature.display-as-row > my-link.miniature-thumbnail img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  border-top-left-radius: 12px !important;
+  border-bottom-left-radius: 12px !important;
+}
+
 .video-miniature.display-as-row .video-info {
   padding-top:5px;
 }
