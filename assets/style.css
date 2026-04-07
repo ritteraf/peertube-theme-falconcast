@@ -8,6 +8,9 @@ body[data-pt-theme="falconcast"] {
   /* ===== THEME TYPE ===== */
   --is-dark: 1 !important;  /* This is a dark theme */
 
+  /* ===== TYPOGRAPHY ===== */
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, Roboto, Helvetica, Arial, sans-serif;
+
   /* ===== LAYOUT & SPACING ===== */
   --x-margin-content: 20px !important;
   --tmp-header-height: 94px;
@@ -23,10 +26,13 @@ body[data-pt-theme="falconcast"] {
   --header-bg: rgba(13, 13, 13, 0.7) !important;
   --fg: #ffffff !important;
   --bg: #0d0d0d !important;
-  --red: #ff0000;
+  --red: #ff3b30;
   --green: #006633; /* Our Falcon Green */
+  --falcon-gold: #FFCC00;
+  --text-secondary: #8e8e93;
+  --text-subtle: rgba(128, 128, 128, 0.6);
   .initial.yellow, .initial.orange {
-    background-color: #e7b901 !important; /* falcon gold */
+    background-color: #FFCC00 !important; /* falcon gold */
   }
 
   /* ===== INPUT STYLING ===== */
@@ -38,7 +44,7 @@ body[data-pt-theme="falconcast"] {
   --input-bg-in-modal: rgba(128, 128, 128, 0.15);
   --input-danger-fg: #ffffff;
   --input-danger-bg: rgba(255, 0, 0, 0.15);
-  --input-placeholder-color: rgba(128, 128, 128, 0.6);
+  --input-placeholder-color: rgba(255, 255, 255, 0.4);
   --input-placeholder-font-size: 14px;
   --input-border-color: #2d2d30;
   --input-border-radius: 12px;
@@ -79,7 +85,7 @@ body[data-pt-theme="falconcast"] {
   --fg-50: rgba(255, 255, 255, 0.45);
   
   /* ===== BACKGROUND SECONDARY VARIATIONS ===== */
-  --bg-secondary: rgba(128, 128, 128, 0.12); /* Base secondary background */
+  --bg-secondary: rgba(128, 128, 128, 0.15); /* Base secondary background */
   --bg-secondary-600: rgba(128, 128, 128, 0.2);
   --bg-secondary-550: rgba(128, 128, 128, 0.18);
   --bg-secondary-500: rgba(128, 128, 128, 0.16);
@@ -104,7 +110,7 @@ body[data-pt-theme="falconcast"] {
   --menu-fg-150: rgba(255, 255, 255, 0.45);
   --menu-fg-100: rgba(255, 255, 255, 0.4);
   --menu-fg-50: rgba(255, 255, 255, 0.35);
-  --menu-bg: rgba(128, 128, 128, 0.08);
+  --menu-bg: rgba(128, 128, 128, 0.15);
   --menu-bg-600: rgba(128, 128, 128, 0.16);
   --menu-bg-550: rgba(128, 128, 128, 0.15);
   --menu-bg-500: rgba(128, 128, 128, 0.14);
@@ -153,6 +159,7 @@ body[data-pt-theme="falconcast"] {
   /* ===== BORDER COLORS ===== */
   --border-primary: #2d2d30;
   --border-secondary: rgba(128, 128, 128, 0.3);
+  --border-subtle: rgba(255, 255, 255, 0.06);
   
   /* ===== ALERT STYLING ===== */
   --alert-primary-fg: #ffffff;
@@ -184,28 +191,57 @@ router-outlet + * {
   color: #ffffff !important;
 }
 
-/* Custom Logo - CSS loads immediately to prevent flash, JS provides version-agnostic fallback */
-.icon-logo {
-  background-image: url('/themes/falconcast/0.0.79/static/images/FalconCast-nobg.png') !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-}
-
-.instance-name img,
-.top-left-block .instance-name img {
-  content: url('/themes/falconcast/0.0.79/static/images/FalconCast-nobg.png') !important;
-  max-height: 50px !important;
+/* Custom Logo - sizing only, src replaced by JS in common-client-plugin.js */
+img.logo,
+.icon-logo img,
+.instance-name img {
+  max-height: 60px !important;
   width: auto !important;
+  object-fit: contain !important;
 }
 
-/* ===== ADDITIONAL LIQUID GLASS ENHANCEMENTS ===== */
-/* These add extra visual polish beyond the basic variables */
+/* Mute the login button — not a primary action for public viewers */
+a.primary-button[href="/login"] {
+  background: transparent !important;
+  border: 1px solid var(--border-subtle) !important;
+  box-shadow: none !important;
+  color: #8e8e93 !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  padding: 6px 14px !important;
+}
 
-/* Glass effect for dropdowns and modals */
+a.primary-button[href="/login"]:hover {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: var(--fg) !important;
+}
+
+/* Mobile: icon-only login button */
+a.primary-button[href="/login"].icon-only {
+  border: none !important;
+  padding: 8px !important;
+  font-size: 0 !important;
+}
+
+a.primary-button[href="/login"].icon-only svg {
+  stroke: #8e8e93 !important;
+}
+
+a.primary-button[href="/login"].icon-only:hover svg {
+  stroke: var(--fg) !important;
+}
+
+/* Header brand title */
+.instance-name {
+  font-size: 1.875rem !important;
+  font-weight: 800 !important;
+}
+
+/* ===== OVERLAYS & POPUPS ===== */
+/* Keep blur on floating UI only (modals, dropdowns) */
 .dropdown-menu,
 .modal-content,
-.popover,
-.tooltip-inner {
+.popover {
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   background: rgba(128, 128, 128, 0.08) !important;
@@ -215,10 +251,28 @@ router-outlet + * {
     0 4px 16px rgba(0, 0, 0, 0.15) !important;
 }
 
+/* Tooltips — solid background for readability */
+.tooltip,
+ngb-tooltip-window {
+  opacity: 1 !important;
+}
+
+.tooltip-inner {
+  background: #1f1f1f !important;
+  color: #ffffff !important;
+  border: 1px solid var(--border-subtle) !important;
+}
+
+.tooltip .arrow::before,
+.tooltip .tooltip-arrow::before {
+  border-top-color: #1f1f1f !important;
+  border-bottom-color: #1f1f1f !important;
+}
+
 /* Enhanced button styling */
 .btn-primary {
   background: linear-gradient(135deg, #006633 0%, rgba(0, 102, 51, 0.8) 50%, #006633 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
   box-shadow: 0 2px 8px rgba(0, 102, 51, 0.3) !important;
   transition: all 0.15s ease !important;
 }
@@ -247,20 +301,20 @@ router-outlet + * {
 } 
 
 .video-miniature {
-  border-radius: 16px !important;
+  border-radius: 12px !important;
 }
 
 .video-miniature a.video-thumbnail {
-  border-top-left-radius: 16px !important;
-  border-top-right-radius: 16px !important;
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
 
 .video-miniature.display-as-row a.video-thumbnail {
-  border-top-left-radius: 16px !important;
+  border-top-left-radius: 12px !important;
   border-top-right-radius: 0 !important;
-  border-bottom-left-radius: 16px !important;
+  border-bottom-left-radius: 12px !important;
   border-bottom-right-radius: 0 !important;
 }
 
@@ -273,9 +327,21 @@ router-outlet + * {
 }
 
 .video-miniature .video-info .video-name-container {
-  display:block !important;
+  display: flex !important;
+  align-items: flex-start !important;
   padding-right: 10px !important;
-  min-height:48px;
+  min-height: 48px;
+}
+
+.video-miniature .video-info .video-name-container .video-name {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.video-miniature .video-info .video-name-container .video-actions {
+  flex-shrink: 0 !important;
+  width: 24px !important;
+  margin-left: 4px !important;
 }
 
 .video-miniature.display-as-row .video-info .video-name-container {
@@ -290,18 +356,16 @@ router-outlet + * {
 .card,
 .video-miniature,
 .channel-miniature {
-  background: rgba(128, 128, 128, 0.08) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 
 .search-result .video-miniature {
   background: none !important;
-  backdrop-filter: blur(0px) !important;
-  -webkit-backdrop-filter: blur(0px) !important;
   border: none !important;
+  box-shadow: none !important;
   transition: none !important;
 }
 
@@ -312,24 +376,38 @@ router-outlet + * {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Navigation menu glass effect */
-.menu-wrapper {
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  background: rgba(128, 128, 128, 0.05) !important;
+/* Navigation menu */
+.menu-wrapper,
+.main-menu {
+  background: var(--menu-bg) !important;
+  border-right: 1px solid var(--border-subtle) !important;
+}
+
+/* Search typeahead help dropdown */
+#typeahead-input-help {
+  background: #1f1f1f !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--input-border-radius) !important;
 }
 
 /* Search bar enhancements */
 .search-typeahead,
-input[type="search"],
-.form-control {
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+input[type="search"] {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: none !important;
+  transition: background 0.2s ease, box-shadow 0.2s ease !important;
 }
 
 .search-typeahead:focus,
-input[type="search"]:focus,
+input[type="search"]:focus {
+  background: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 0 0 2px rgba(0, 102, 51, 0.2) !important;
+}
+
+.form-control {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
 .form-control:focus {
   border-color: var(--primary) !important;
   box-shadow: 0 0 0 2px rgba(0, 102, 51, 0.2) !important;
@@ -337,8 +415,8 @@ input[type="search"]:focus,
 
 /* Live indicator styling */
 .badge-live {
-  background: linear-gradient(135deg, #ff0000 0%, rgba(255, 0, 0, 0.8) 100%) !important;
-  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3) !important;
+  background: rgba(255, 59, 48, 0.9) !important;
+  box-shadow: 0 2px 8px rgba(255, 59, 48, 0.3) !important;
 }
 
 /* Header styling */
@@ -620,27 +698,140 @@ my-home-menu {
   display:none !important;
 }
 
+.action-button-dislike {
+  display:none !important;
+}
+
+body.user-logged-out my-video-comment-add,
+body.user-logged-out .action-button-download {
+  display:none !important;
+}
+
 div#video-sensitive-content-policy + div {
+  display:none !important;
+}
+
+my-privacy-concerns {
   display:none !important;
 }
 
 /* Scrollbar styling for webkit browsers */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(128, 128, 128, 0.1);
-  border-radius: 4px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 102, 51, 0.6);
-  border-radius: 4px;
-  transition: background 0.2s ease;
+  background: rgba(128, 128, 128, 0.3);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 102, 51, 0.8);
+  background: rgba(128, 128, 128, 0.5);
+}
+
+/* ===== TYPOGRAPHY SCALE ===== */
+/* Align with iOS app type hierarchy */
+
+/* Section headings ("Trending", "Recently Added", etc.) */
+.margin-content h2,
+.margin-content .section-title,
+.margin-content .block-title {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+}
+
+/* Video titles on cards */
+.video-miniature .video-name {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}
+
+/* Video title on watch page */
+.video-info-name {
+  font-size: 1.375rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+}
+
+/* Video description on watch page */
+.video-info-description {
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  color: #8e8e93 !important;
+  line-height: 1.5 !important;
+}
+
+/* ===== TEXT HIERARCHY ===== */
+/* Secondary text color for metadata elements */
+
+.video-miniature .video-miniature-information .owner,
+.video-miniature .video-miniature-information .video-info-date-views,
+.video-miniature .video-miniature-information .creator,
+.video-miniature .video-views,
+.video-miniature .video-duration,
+.video-attribute-value,
+.comment-date,
+.video-info-date-views {
+  color: #8e8e93 !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+}
+
+/* Channel names in cards */
+.video-miniature .video-miniature-information .owner a,
+.video-miniature .video-miniature-information .actor a {
+  color: #8e8e93 !important;
+}
+
+/* ===== FILTER CHIPS ===== */
+/* Capsule pill style matching iOS app */
+
+.badge-video,
+.badge-audio,
+my-video-filters-header .chip,
+.filter-chip,
+.peertube-select-container select {
+  border-radius: 9999px !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
+  border: none !important;
+  transition: all 0.15s ease !important;
+}
+
+/* Active filter state */
+.badge-video.active,
+.badge-audio.active,
+my-video-filters-header .chip.active,
+.filter-chip.active,
+.filter-chip--active {
+  background: #006633 !important;
+  color: #ffffff !important;
+}
+
+/* Inactive filter state */
+.badge-video:not(.active),
+.badge-audio:not(.active),
+my-video-filters-header .chip:not(.active),
+.filter-chip:not(.active),
+.filter-chip--inactive {
+  background: rgba(128, 128, 128, 0.15) !important;
+  color: #8e8e93 !important;
+}
+
+/* Interactive press feedback matching iOS */
+.btn-primary:active {
+  transform: scale(0.97) !important;
+}
+
+.btn-secondary:active,
+.btn-utility:active,
+button.filters-toggle:active {
+  transform: scale(0.95) !important;
 }
