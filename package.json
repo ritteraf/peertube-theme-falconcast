@@ -1,6 +1,6 @@
 {
   "name": "peertube-theme-falconcast",
-  "version": "0.1.20",
+  "version": "0.1.22",
   "description": "PeerTube theme FalconCast",
   "scripts": {
     "build": "echo 'No build needed for CSS-only theme'"

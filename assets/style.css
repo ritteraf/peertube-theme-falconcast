@@ -316,6 +316,12 @@ ngb-tooltip-window {
   border-top-right-radius: 0 !important;
   border-bottom-left-radius: 12px !important;
   border-bottom-right-radius: 0 !important;
+  height: 100% !important;
+}
+
+.video-miniature.display-as-row a.video-thumbnail img {
+  height: 100% !important;
+  object-fit: cover !important;
 }
 
 .video-miniature.display-as-row .video-info {
@@ -573,7 +579,7 @@ ngx-loading-bar .ngx-bar {
   }
 
   .video-miniature.display-as-row {
-    --co-row-thumbnail-height: 87px !important;
+    --co-row-thumbnail-height: 110px !important;
   }
 
   my-video-filters-header label.select-label {
@@ -756,6 +762,13 @@ my-privacy-concerns {
   font-size: 0.875rem !important;
   font-weight: 600 !important;
   line-height: 1.3 !important;
+}
+
+@media screen and (max-width: 500px) {
+  .video-miniature .video-name {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+  }
 }
 
 /* Video title on watch page */
