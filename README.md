@@ -1,1 +1,1 @@
-# PeerTube theme Quickstart
+# peertube-theme-falconcast

@@ -1,0 +1,646 @@
+/* FalconCast Dark Theme for PeerTube */
+
+/* Force dark theme on root level */
+:root,
+html,
+body,
+body[data-pt-theme="falconcast"] {
+  /* ===== THEME TYPE ===== */
+  --is-dark: 1 !important;  /* This is a dark theme */
+
+  /* ===== LAYOUT & SPACING ===== */
+  --x-margin-content: 20px !important;
+  --tmp-header-height: 94px;
+  --header-height: 94px;
+  --co-logo-size: 60px !important;
+
+  @media screen and (max-width: 500px) {
+    --header-height: 146px !important;
+  }
+
+  /* ===== CORE COLORS ===== */
+  --header-fg: #ffffff !important;
+  --header-bg: rgba(13, 13, 13, 0.7) !important;
+  --fg: #ffffff !important;
+  --bg: #0d0d0d !important;
+  --red: #ff0000;
+  --green: #006633; /* Our Falcon Green */
+  .initial.yellow, .initial.orange {
+    background-color: #e7b901 !important; /* falcon gold */
+  }
+
+  /* ===== INPUT STYLING ===== */
+  --input-fg: #ffffff;
+  --input-bg: rgba(128, 128, 128, 0.15);
+  --input-bg-550: rgba(128, 128, 128, 0.18);
+  --input-bg-600: rgba(128, 128, 128, 0.2);
+  --input-bg-in-secondary: rgba(128, 128, 128, 0.12);
+  --input-bg-in-modal: rgba(128, 128, 128, 0.15);
+  --input-danger-fg: #ffffff;
+  --input-danger-bg: rgba(255, 0, 0, 0.15);
+  --input-placeholder-color: rgba(128, 128, 128, 0.6);
+  --input-placeholder-font-size: 14px;
+  --input-border-color: #2d2d30;
+  --input-border-radius: 12px;
+  --input-border-width: 1px;
+  --input-check-active-fg: #ffffff;
+  --input-check-active-bg: #006633;
+  --input-x-padding: 16px;
+  --input-y-padding: 10px;
+  
+  /* ===== TEXTAREA STYLING ===== */
+  --textarea-x-padding: 16px;
+  --textarea-y-padding: 16px;
+  --textarea-fg: #ffffff;
+  --textarea-bg: rgba(128, 128, 128, 0.15);
+  --textarea-bg-in-secondary: rgba(128, 128, 128, 0.12);
+  --textarea-bg-in-modal: rgba(128, 128, 128, 0.15);
+  
+  /* ===== SUPPORT BUTTON STYLING ===== */
+  --support-btn-bg: #006633;
+  --support-btn-fg: #ffffff;
+  --support-btn-heart-bg: #e83e8c;
+  
+  /* ===== ICON COLORS ===== */
+  --secondary-icon-color: #808080;
+  --active-icon-color: #ffffff;
+  --active-icon-bg: rgba(0, 102, 51, 0.2);
+  
+  /* ===== FOREGROUND VARIATIONS ===== */
+  --fg-500: rgba(255, 255, 255, 0.9);
+  --fg-450: rgba(255, 255, 255, 0.85);
+  --fg-400: rgba(255, 255, 255, 0.8);
+  --fg-350: rgba(255, 255, 255, 0.75);
+  --fg-300: rgba(255, 255, 255, 0.7);
+  --fg-250: rgba(255, 255, 255, 0.65);
+  --fg-200: rgba(255, 255, 255, 0.6);
+  --fg-150: rgba(255, 255, 255, 0.55);
+  --fg-100: rgba(255, 255, 255, 0.5);
+  --fg-50: rgba(255, 255, 255, 0.45);
+  
+  /* ===== BACKGROUND SECONDARY VARIATIONS ===== */
+  --bg-secondary: rgba(128, 128, 128, 0.12); /* Base secondary background */
+  --bg-secondary-600: rgba(128, 128, 128, 0.2);
+  --bg-secondary-550: rgba(128, 128, 128, 0.18);
+  --bg-secondary-500: rgba(128, 128, 128, 0.16);
+  --bg-secondary-450: rgba(128, 128, 128, 0.15);
+  --bg-secondary-400: rgba(128, 128, 128, 0.14);
+  --bg-secondary-350: rgba(128, 128, 128, 0.13);
+  --bg-secondary-300: rgba(128, 128, 128, 0.12);
+  --bg-secondary-250: rgba(128, 128, 128, 0.11);
+  --bg-secondary-200: rgba(128, 128, 128, 0.1);
+  
+  /* ===== MENU STYLING ===== */
+  --menu-fg: #ffffff;
+  --menu-fg-600: rgba(255, 255, 255, 0.9);
+  --menu-fg-550: rgba(255, 255, 255, 0.85);
+  --menu-fg-500: rgba(255, 255, 255, 0.8);
+  --menu-fg-450: rgba(255, 255, 255, 0.75);
+  --menu-fg-400: rgba(255, 255, 255, 0.7);
+  --menu-fg-350: rgba(255, 255, 255, 0.65);
+  --menu-fg-300: rgba(255, 255, 255, 0.6);
+  --menu-fg-250: rgba(255, 255, 255, 0.55);
+  --menu-fg-200: rgba(255, 255, 255, 0.5);
+  --menu-fg-150: rgba(255, 255, 255, 0.45);
+  --menu-fg-100: rgba(255, 255, 255, 0.4);
+  --menu-fg-50: rgba(255, 255, 255, 0.35);
+  --menu-bg: rgba(128, 128, 128, 0.08);
+  --menu-bg-600: rgba(128, 128, 128, 0.16);
+  --menu-bg-550: rgba(128, 128, 128, 0.15);
+  --menu-bg-500: rgba(128, 128, 128, 0.14);
+  --menu-bg-450: rgba(128, 128, 128, 0.13);
+  --menu-bg-400: rgba(128, 128, 128, 0.12);
+  --menu-bg-350: rgba(128, 128, 128, 0.11);
+  --menu-bg-300: rgba(128, 128, 128, 0.1);
+  --menu-bg-250: rgba(128, 128, 128, 0.09);
+  --menu-bg-200: rgba(128, 128, 128, 0.08);
+  --menu-margin-left: 2rem;
+  --menu-width: 248px;
+  --menu-border-radius: 12px;
+  
+  /* ===== PRIMARY COLOR SYSTEM (Falcon Green) ===== */
+  --on-primary: #ffffff;
+  --on-primary-700: rgba(255, 255, 255, 0.95);
+  --on-primary-650: rgba(255, 255, 255, 0.9);
+  --on-primary-600: rgba(255, 255, 255, 0.85);
+  --on-primary-550: rgba(255, 255, 255, 0.8);
+  --on-primary-500: rgba(255, 255, 255, 0.75);
+  --on-primary-450: rgba(255, 255, 255, 0.7);
+  --on-primary-400: rgba(255, 255, 255, 0.65);
+  --on-primary-350: rgba(255, 255, 255, 0.6);
+  --on-primary-300: rgba(255, 255, 255, 0.55);
+  --on-primary-250: rgba(255, 255, 255, 0.5);
+  --on-primary-200: rgba(255, 255, 255, 0.45);
+  --on-primary-150: rgba(255, 255, 255, 0.4);
+  --on-primary-100: rgba(255, 255, 255, 0.35);
+  --on-primary-50: rgba(255, 255, 255, 0.3);
+  --primary: #006633;
+  --primary-700: #004d19;
+  --primary-650: #005222;
+  --primary-600: #00572a;
+  --primary-550: #005c33;
+  --primary-500: #00613b;
+  --primary-450: #006644;
+  --primary-400: #006b4c;
+  --primary-350: #007055;
+  --primary-300: #00755d;
+  --primary-250: #007a66;
+  --primary-200: #007f6e;
+  --primary-150: #008477;
+  --primary-100: #00897f;
+  --primary-50: #008e88;
+  
+  /* ===== BORDER COLORS ===== */
+  --border-primary: #2d2d30;
+  --border-secondary: rgba(128, 128, 128, 0.3);
+  
+  /* ===== ALERT STYLING ===== */
+  --alert-primary-fg: #ffffff;
+  --alert-primary-bg: rgba(0, 102, 51, 0.15);
+  --alert-primary-border-color: #006633;
+  
+  /* ===== VIDEO PLAYER STYLING ===== */
+  --pt-player-fg: #ffffff;
+  --pt-player-big-play-bg: rgba(0, 102, 51, 0.8);
+  --pt-player-overlay-secondary-fg: #ffffff;
+  --pt-player-overlay-secondary-bg: rgba(0, 0, 0, 0.7);
+
+}
+
+/* Force dark theme colors on body and html */
+html,
+body,
+body.main-col,
+my-app {
+  background-color: #0d0d0d !important;
+  color: #ffffff !important;
+}
+
+/* Ensure main content area is dark */
+.main-col,
+.sub-header-container,
+router-outlet + * {
+  background-color: #0d0d0d !important;
+  color: #ffffff !important;
+}
+
+/* Custom Logo - CSS loads immediately to prevent flash, JS provides version-agnostic fallback */
+.icon-logo {
+  background-image: url('/themes/falconcast/0.0.79/static/images/FalconCast-nobg.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+}
+
+.instance-name img,
+.top-left-block .instance-name img {
+  content: url('/themes/falconcast/0.0.79/static/images/FalconCast-nobg.png') !important;
+  max-height: 50px !important;
+  width: auto !important;
+}
+
+/* ===== ADDITIONAL LIQUID GLASS ENHANCEMENTS ===== */
+/* These add extra visual polish beyond the basic variables */
+
+/* Glass effect for dropdowns and modals */
+.dropdown-menu,
+.modal-content,
+.popover,
+.tooltip-inner {
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  background: rgba(128, 128, 128, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Enhanced button styling */
+.btn-primary {
+  background: linear-gradient(135deg, #006633 0%, rgba(0, 102, 51, 0.8) 50%, #006633 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 2px 8px rgba(0, 102, 51, 0.3) !important;
+  transition: all 0.15s ease !important;
+}
+
+.btn-primary:hover {
+  transform: scale(0.97) !important;
+  box-shadow: 0 4px 12px rgba(0, 102, 51, 0.4) !important;
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, 
+    rgba(128, 128, 128, 0.12) 0%, 
+    rgba(128, 128, 128, 0.15) 50%, 
+    rgba(128, 128, 128, 0.09) 100%) !important;
+  border: 1px solid rgba(0, 102, 51, 0.3) !important;
+  color: var(--fg) !important;
+}
+
+/* Card enhancements */
+.video-wrapper, my-video-miniature {
+  margin-bottom:16px !important;
+}
+
+.search-result my-video-miniature {
+  margin-bottom:0px !important;
+} 
+
+.video-miniature {
+  border-radius: 16px !important;
+}
+
+.video-miniature a.video-thumbnail {
+  border-top-left-radius: 16px !important;
+  border-top-right-radius: 16px !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.video-miniature.display-as-row a.video-thumbnail {
+  border-top-left-radius: 16px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 16px !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.video-miniature.display-as-row .video-info {
+  padding-top:5px;
+}
+
+.video-miniature.display-as-row .owner {
+  margin-top:0px !important;
+}
+
+.video-miniature .video-info .video-name-container {
+  display:block !important;
+  padding-right: 10px !important;
+  min-height:48px;
+}
+
+.video-miniature.display-as-row .video-info .video-name-container {
+  min-height:0px !important;
+  padding-top:8px !important;
+}
+
+.videos .video-miniature .video-info {
+  padding:0px 10px !important;
+}
+
+.card,
+.video-miniature,
+.channel-miniature {
+  background: rgba(128, 128, 128, 0.08) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.search-result .video-miniature {
+  background: none !important;
+  backdrop-filter: blur(0px) !important;
+  -webkit-backdrop-filter: blur(0px) !important;
+  border: none !important;
+  transition: none !important;
+}
+
+.card:hover,
+.video-miniature:hover,
+.channel-miniature:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Navigation menu glass effect */
+.menu-wrapper {
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  background: rgba(128, 128, 128, 0.05) !important;
+}
+
+/* Search bar enhancements */
+.search-typeahead,
+input[type="search"],
+.form-control {
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.search-typeahead:focus,
+input[type="search"]:focus,
+.form-control:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 2px rgba(0, 102, 51, 0.2) !important;
+}
+
+/* Live indicator styling */
+.badge-live {
+  background: linear-gradient(135deg, #ff0000 0%, rgba(255, 0, 0, 0.8) 100%) !important;
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3) !important;
+}
+
+/* Header styling */
+.root-header, my-header {
+  background: none !important;
+}
+
+.root-header .root {
+  --co-logo-size: 60px !important;
+  --co-root-padding: 1.0rem !important;
+  background: rgba(13, 13, 13, 0.7) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: none !important;
+}
+
+/* Base Element Styles
+   ================= */
+
+::selection {
+  color: var(--on-primary-450);
+  background-color: var(--primary-450);
+}
+
+/* Input Styles */
+input[readonly] {
+  background-color: var(--input-bg) !important;
+}
+
+input, textarea {
+  color: var(--input-fg);
+}
+
+/* Clear Chrome search X button */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+/* Text Elements */
+strong {
+  font-weight: 700;
+}
+
+code {
+  background-color: var(--bg-secondary-500);
+  color: var(--fg-400);
+  border-radius: 3px;
+  padding: 0.2em 0.4em;
+  margin: auto 0.4em;
+  font-size: 75%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Link Styles */
+a {
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+a.pt {
+  text-decoration-color: var(--border-primary);
+  text-underline-offset: 0.25em;
+}
+
+/* Layout Classes */
+.main-col {
+  width: calc(100% - var(--menu-width));
+  margin-inline-start: var(--menu-width);
+  outline: none;
+  transition: width 0.3s ease, margin 0.3s ease;
+}
+
+.main-col .margin-content {
+  margin: 0 var(--x-margin-content);
+  flex-grow: 1;
+}
+
+.main-col.expanded {
+  --menu-width: 50px;
+}
+
+.main-col.lock-scroll .main-row > router-outlet + * {
+  position: fixed;
+}
+
+.modal-open {
+  overflow: hidden !important;
+}
+
+/* Loading Bar */
+ngx-loading-bar .ngx-bar {
+  height: 3px !important;
+  border-radius: 0 !important;
+  border-start-end-radius: 6px !important;
+  border-end-end-radius: 6px !important;
+  background: linear-gradient(90deg, 
+    var(--primary) 0%, 
+    var(--primary-300) 50%, 
+    var(--primary) 100%
+  ) !important;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+  .menu-open {
+    overflow: hidden !important;
+  }
+
+  .main-col {
+    --menu-width: 50px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main-col {
+    --x-margin-content: 1rem;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  textarea,
+  .peertube-select-container {
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-col,
+  .main-col.expanded {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .main-menu {
+    background-color: var(--bg) !important;
+  }
+
+  .main-menu .mobile-controls {
+    padding-bottom: 0px !important;
+  }
+
+  .main-menu .block-title {
+    font-size:26px !important;
+  }
+
+  .video-wrapper {
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .video-miniature.display-as-row {
+    --co-row-thumbnail-height: 87px !important;
+  }
+
+  my-video-filters-header label.select-label {
+    display:none !important;
+  }
+
+  .bottom-owner .owner-block .avatar-row {
+    flex-direction: row !important;
+  }
+
+  a.view-account.link-primary.complete {
+    margin-top:0px !important;
+  }
+
+  .channels .channel {
+    margin-left:15px !important;
+    margin-right:15px !important;
+  }
+
+  .instance-name {
+    display:block !important;
+  }
+}
+
+/* Avatars */
+.channel-avatar-row img.avatar {
+  width:50px !important;
+  height:50px !important;
+  min-width:50px !important;
+  min-height:50px !important;
+}
+
+/* Fix filters toggle button styling */
+
+button.filters-toggle {
+  background: var(--input-bg) !important;
+  border: 1px solid var(--input-border-color) !important;
+  transition: border-color .2s, box-shadow .2s;
+  border-radius: var(--input-border-radius) !important;
+  padding:10px 15px !important;
+  text-decoration:none !important;
+  margin-left:0px !important;
+  margin-top:0px !important;
+}
+
+my-video-filters-header .mb-2, my-video-filters-header .gap-3 {
+  margin-bottom:0px !important;
+  margin-top:0px !important;
+}
+
+/* Fix Search Results */
+
+my-search .entry {
+  background: var(--input-bg) !important;
+  border: 1px solid var(--input-border-color) !important;
+  transition: border-color .2s, box-shadow .2s;
+  border-radius: var(--input-border-radius) !important;
+  padding:10px 15px !important;
+  margin-bottom:16px !important;
+}
+
+/* Fix weird borders */
+.results-header {
+  border-bottom:1px solid var(--border-primary) !important;
+}
+
+/* Fix Channel Video Horizontal list */
+.videos-overflow-workaround .video-miniature .video-info {
+  padding-left:10px !important;
+}
+
+/* Fix Channel Video "show this channel" button on channel list */
+.channels .miniature-show-channel {
+  background: linear-gradient(90deg,transparent 0,rgba(28,28,28,0.95) 55px) !important;
+}
+
+.channels .miniature-show-channel a {
+  border-radius:var(--input-border-radius) !important;
+  background: var(--input-bg) !important;
+  border: 1px solid var(--input-border-color) !important;
+  padding:10px 15px !important;
+  text-decoration:none !important;
+}
+
+/* Fix channels layout */
+.channels .channel {
+  border-radius: var(--input-border-radius) !important;
+}
+
+/* Hide Stuff We Dont Want */
+
+my-login my-alert+my-alert {
+  display:block !important;
+}
+
+.mobile-controls .icon-logo {
+  opacity:0 !important;
+}
+
+.margin-content .d-block .root {
+    /* Moves up video list to cover empty area created above */
+    min-height:0px !important;
+}
+
+.menu-container .mt-3.mx-4.ng-star-inserted {
+  display:none !important;
+}
+
+.filters-summary .active-filters {
+  display:none !important;
+}
+
+my-video-filters-header > div > div:first-of-type {
+  display:none !important;
+}
+
+.scope-info {
+  display:none !important;
+}
+
+my-home-menu {
+  display:none !important;
+}
+
+div#video-sensitive-content-policy + div {
+  display:none !important;
+}
+
+/* Scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 102, 51, 0.6);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 102, 51, 0.8);
+}
