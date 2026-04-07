@@ -30,6 +30,10 @@ function register ({ registerHook, peertubeHelpers }) {
       const observer = new MutationObserver(replaceLogo);
       observer.observe(document.body, { childList: true, subtree: true });
 
+      // Remove PeerTube's Smart App Banner
+      const appBanner = document.querySelector('meta[name="apple-itunes-app"]');
+      if (appBanner) appBanner.remove();
+
       // Add login state class to body for CSS targeting
       const isLoggedIn = peertubeHelpers.isLoggedIn();
       document.body.classList.add(isLoggedIn ? 'user-logged-in' : 'user-logged-out');
