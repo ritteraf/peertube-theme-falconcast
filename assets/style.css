@@ -1,3 +1,6 @@
+/* Load display font for headings */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
+
 /* FalconCast Dark Theme for PeerTube */
 
 /* Force dark theme on root level */
@@ -233,6 +236,7 @@ a.primary-button[href="/login"].icon-only:hover svg {
 
 /* Header brand title */
 .instance-name {
+  font-family: 'Montserrat', sans-serif !important;
   font-size: 1.875rem !important;
   font-weight: 800 !important;
 }
@@ -790,12 +794,26 @@ my-privacy-concerns {
 .margin-content h2,
 .margin-content .section-title,
 .margin-content .block-title {
+  font-family: 'Montserrat', sans-serif !important;
   font-size: 1.25rem !important;
   font-weight: 700 !important;
 }
 
+/* Menu section headers — Montserrat only, keep existing size/weight */
+.menu-container .block-title {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Sidebar instance description — subdued below nav items */
+.menu-container .description {
+  font-size: 0.75rem !important;
+  color: var(--text-secondary) !important;
+  line-height: 1.4 !important;
+}
+
 /* Video titles on cards */
 .video-miniature .video-name {
+  font-family: 'Montserrat', sans-serif !important;
   font-size: 0.875rem !important;
   font-weight: 600 !important;
   line-height: 1.3 !important;
@@ -810,9 +828,28 @@ my-privacy-concerns {
 
 /* Video title on watch page */
 .video-info-name {
+  font-family: 'Montserrat', sans-serif !important;
   font-size: 1.375rem !important;
   font-weight: 700 !important;
   line-height: 1.3 !important;
+}
+
+/* Video page utility labels — subdued so they don't compete with the title */
+my-video-comments .title-block h2,
+my-recommended-videos .title-page-container h2 {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  color: var(--text-secondary) !important;
+}
+
+my-video-comments #dropdown-sort-comments,
+my-recommended-videos .title-page-autoplay span {
+  font-size: 0.7rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em !important;
+  color: var(--text-secondary) !important;
 }
 
 /* Video description on watch page */
