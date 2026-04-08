@@ -449,9 +449,34 @@ input[type="search"]:focus {
 }
 
 /* Live indicator styling */
-.badge-live {
-  background: rgba(255, 59, 48, 0.9) !important;
-  box-shadow: 0 2px 8px rgba(255, 59, 48, 0.3) !important;
+.live-overlay.live-streaming {
+  background: #ff3b30 !important;
+  box-shadow: 0 2px 12px rgba(255, 59, 48, 0.5) !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  padding: 6px 14px !important;
+  animation: live-pulse 2s ease-in-out infinite !important;
+}
+
+.live-overlay.live-streaming::before {
+  background-color: #ffffff !important;
+}
+
+@keyframes live-pulse {
+  0%, 100% { box-shadow: 0 2px 12px rgba(255, 59, 48, 0.5); }
+  50% { box-shadow: 0 2px 20px rgba(255, 59, 48, 0.8); }
+}
+
+/* Live video card — red accent border */
+.video-miniature:has(.live-overlay.live-streaming) {
+  border-color: rgba(255, 59, 48, 0.4) !important;
+}
+
+/* Live Now menu button — red to match live badges */
+.menu-button a.primary-button[href*="watch"] {
+  background: #ff3b30 !important;
+  border-color: rgba(255, 59, 48, 0.6) !important;
+  box-shadow: 0 2px 12px rgba(255, 59, 48, 0.3) !important;
 }
 
 /* Header styling */
