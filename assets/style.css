@@ -410,6 +410,10 @@ ngb-tooltip-window {
   border-right: 1px solid var(--border-subtle) !important;
 }
 
+.menu-container {
+  background: transparent !important;
+}
+
 /* Search typeahead help dropdown */
 #typeahead-input-help {
   background: #1f1f1f !important;
@@ -554,6 +558,13 @@ ngx-loading-bar .ngx-bar {
 @media screen and (max-width: 1200px) {
   .menu-open {
     overflow: hidden !important;
+  }
+
+  .menu-wrapper,
+  .menu-wrapper > *,
+  .main-menu,
+  .menu-container {
+    background: var(--bg) !important;
   }
 
   .main-col {
